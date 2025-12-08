@@ -20,6 +20,7 @@ const els = {
   weatherIcon: document.getElementById('weatherIcon')
 };
 
+// --- 1. Clock & Greeting ---
 function updateClock() {
   const now = new Date();
   els.time.textContent = now.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
@@ -30,6 +31,15 @@ function updateClock() {
 }
 setInterval(updateClock, 1000);
 updateClock();
+
+// Load saved name
+const savedName = localStorage.getItem('username');
+if (savedName) document.getElementById('greetingName').textContent = savedName;
+
+// Save name on edit
+document.getElementById('greetingName').addEventListener('input', (e) => {
+  localStorage.setItem('username', e.target.textContent);
+});
 
 async function fetchWeather() {
   let lat = 28.61, lon = 77.20; 
