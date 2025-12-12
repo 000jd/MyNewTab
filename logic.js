@@ -32,14 +32,7 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-// Load saved name
-const savedName = localStorage.getItem('username');
-if (savedName) document.getElementById('greetingName').textContent = savedName;
 
-// Save name on edit
-document.getElementById('greetingName').addEventListener('input', (e) => {
-  localStorage.setItem('username', e.target.textContent);
-});
 
 async function fetchWeather() {
   let lat = 28.61, lon = 77.20; 
@@ -132,6 +125,6 @@ document.getElementById('refreshBtn').addEventListener('click', loadWallpaper);
 loadWallpaper();
 
 document.getElementById('app-chatgpt').addEventListener('click', () => window.location.href='https://chatgpt.com');
-document.getElementById('app-youtube').addEventListener('click', () => window.location.href='https://youtube.com');
+document.getElementById('app-perplexity').addEventListener('click', () => window.location.href='https://www.perplexity.ai');
 document.getElementById('app-gmail').addEventListener('click', () => window.location.href='https://gmail.com');
 document.getElementById('app-github').addEventListener('click', () => window.location.href='https://github.com');
